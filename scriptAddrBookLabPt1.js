@@ -1,92 +1,71 @@
 'use strict';
 
-//buttons
-// const addcontactDivBtn = document.getElementById('addButton');
-// const delBtn = document.querySelector('trashcan');
+class AddressBook{
+  constructor(contacts){
+    this.contacts = contacts;
+  }
+  
+  add(info) {
+    this.contacts.push(info);
+  }
+  
+  deleteAt(index) {
+    this.contacts.splice(index, 1);
+  }
+  
+display() {
+    contacts.innerHTML = '';
+    nameInput.value = '';
+    phoneInput.value = '';
+    emailInput.value = '';
+    relationSelect.value = '';
 
-//form fields
-// const name= document.getElementById('name').value;
-// const email= document.getElementById('email').value;
-// const phone= document.getElementById('phone').value;
-// const relation= document.getElementById('select').value;
+    for (let i = 0; i < this.contacts.length; i++) {
+      const contact = this.contacts[i];
+      const contactDiv = document.createElement('div');
+      contactDiv.classList.add('contactDiv');
+      const deleteButton = document.createElement('button');
+    
+      contactDiv.innerHTML = `
+        <p class="nameP">Name: ${contact.name}</p> 
+        <p class="emailP">Email: ${contact.email}</p> 
+        <p class="phone">Phone: ${contact.phone}</p> 
+        <p class="relationP">Relation: ${contact.relation}</p>`;
+        deleteButton.classList.add('deleteButton');
+        deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
+        deleteButton.addEventListener('click', () => {
+            this.deleteAt(i);
+            this.display();
+          });
+        contactDiv.appendChild(deleteButton);
+        contacts.appendChild(contactDiv);
 
+      }
+  }
+}
 
 class Contact {
-    constructor(name, phone, email, relation) {
+    constructor(name, email, phone, relation) {
         this.name = name;
-        this.phone = phone;
         this.email = email;
+        this.phone = phone;
         this.relation = relation;
- }
-}
-
-class AddressBook {
-
-contactInput (){
-}
-    constructor(){
-        this.contacts = [
-          {name: 'Michael', email: 'mike@gmail.com', phone: '1234567', relation: 'me'},
-          {name: 'Lauren', email: 'lolo@gmail.com', phone: '7654321', relation: 'woman'}
-        ];
     }
-
-
-add(info) {
-    let newContact = new Contact(info.name, info.email, info.phone, info.relation);
-    this.contacts.push(newContact);
-}
-
-
- deleteAt(index) {
-     this.contacts.splice(index, 1);
-     console.log(this.contacts);
- }
-
- deleteByName() {
-    const name = prompt('Which contact name do you want to delete');
-    const index = this.contacts.findIndex((contact) => contact.name === name)
-     this.contacts.splice(index, 1);
-     console.log(this.contacts);
- }
-
- print() {
-    console.log(addressBook);
- }
-}
-
-let addressBook = new AddressBook();
-
-// 2. Write a loop to prompt the user whether they would like to add, delete, print, or quit.
-// while(true) {
-//     const response = prompt('What would you like to do: add, delete, print, or quit?');
-
-// a. When the user chooses to add, prompt them for the four contact properties
-
-let info = {
+  }
+  
+  const nameInput = document.querySelector(".nameInput");
+  const emailInput = document.querySelector(".emailInput");
+  const phoneInput = document.querySelector(".phoneInput");
+  const relationSelect = document.querySelector("#relation");
+  const buttonAdd = document.querySelector(".buttonAdd");
+  const contacts = document.querySelector(".contacts");
     
-        name: prompt("Enter Contact Name"),
-        email: prompt("Enter Contact Email"),
-        phone: prompt("Enter Contact Phone Number"),
-        relation: prompt("Enter Contact Relation"),
-        };
-        // and call the AddressBook’s add method to add the new contact.
-addressBook.add(info);
-
-          
-    // if(response === 'delete') {
-    //     // b. When the user chooses to delete, prompt them for the index of the contact and
-    //     const response = prompt('Would you like to delete the contact by name or index?');
-        
-    // if(response === 'name') {
-    //         addressBook.deleteByName();
-    //     }else if(response === 'index') {
-    //     let index = prompt('Which contact index do you want to delete?:');
-    //     // call the AddressBook’s deleteAt method to remove the contact.
-    //     addressBook.deleteAt(parseInt(index));
-    //     }
-    // else if(response === 'print'){
-    //         addressBook.print();
-    // }
-// }
+  let book = new AddressBook([new Contact('Michael', 'michael@email.com', '248.895.3402', 'Owner'), new Contact('Lauren', 'lolo@email.com', '313.111.2222', 'Friend'), new Contact('Justin', 'just@email.com', '313.222.1111', 'Family')]);
+  
+  buttonAdd.addEventListener('click', () => {
+    book.add(new Contact(nameInput.value, emailInput.value, phoneInput.value, relationSelect.value));
+    book.display();
+  });
+    
+  book.display(); 

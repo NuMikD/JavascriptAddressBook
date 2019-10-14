@@ -5,22 +5,23 @@ html {
     background: url("https://images.pexels.com/photos/234527/pexels-photo-234527.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1420");
     background-repeat: no-repeat;
     background-size: cover;
-    }
+    background-attachment: fixed;
+}
 
 body {
     display: flex;
     flex-direction: column;
     margin: 3px;
     padding: 0;
-    align-content: center;
 }
 
 .formContainer {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    flex-direction: column;
+    align-content: center;
     background-color: rgb(248, 248, 255, 0.5);
     width: 458px;
-    height: 350px;
+    height: 325px;
     border-radius: 4px;
     list-style: none;
     margin: auto;
@@ -32,26 +33,20 @@ h1{
     font-weight: 500;
     color: white;
     text-align: center;
-    margin: 32px 0 32px;
+    margin: 17px 0 5px;
 }
 
-.fillForm {
+form {
     flex-direction: column;
-    width: 99%;
-}
-
-.fillForm ul{
+    justify-content: center;
     list-style: none;
     padding: 0;
-}
-
-.fillForm li {
     margin: 18px;
     width: 93%;
 }
 
-
-.formfield {
+input, select {
+    margin-bottom: 15px;
     border-radius: 4px;
     width: 100%;
     height: 30px;
@@ -59,11 +54,8 @@ h1{
     background-color: white;
 }
 
-select {
-    padding-left: 7px;
-}
-
-button{
+.buttonAdd {
+    margin: 0 auto;
     border-radius: 4px;
     width: 100%;
     border: none;
@@ -71,13 +63,20 @@ button{
     background-color: white;
 }
 
-.addressBook {
+/* .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 750px;
+
+} */
+.contacts {
     display: flex;
     flex-direction: row; 
-    height: auto;
     flex-wrap: wrap;
-    width: 100%;
-    margin-top: 15px;
+    width: 90%;
+    margin: auto;
     justify-content: space-evenly;
 }
 
@@ -86,26 +85,27 @@ button{
     flex: none;
     flex-direction: column;
     padding: 0px;
-    width: 250px;
+    width: 200px;
     height: 91.6px;
     border-radius: 4px;
     padding: 1px;
-    margin: 30px 0px 2px;
+    margin: 10px auto;
     background-color: lightgray;
 }
 
-li img {
+
+img {
     height: 15px;
+    width: 16px;
     background-color: ghostwhite;
     border-radius: 50%;
     border: 1px solid black;
-    padding: 2px;
-    margin-left: 237px;
+    padding: 0px;
+    margin-left: 185px;
+    margin-top: 5px;
     }
 
-
-
-.contact ul {
+/* .contact ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -115,4 +115,37 @@ li img {
    height: 18px;
    width: 100%;
    background-color: lightgray;
+} */
+
+.contactDiv {
+    background-color: lightgrey;
+    opacity: 0.9;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    padding: 5px;
+    position: relative;
+    font-weight: 600;
+    width: 200px;
+    height: 130px;
+    margin: 10px 0;
+}
+
+.fa-trash-alt {
+    background: white;
+    padding: 3px;
+    border-radius: 30px;
+    border: 1px solid black;
+    }
+
+
+.deleteButton {
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+}
+
+.deleteButton, .fa-trash-alt {
+    position: absolute;
+    left: 100px;
+    top: 65px;
 }

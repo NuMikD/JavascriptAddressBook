@@ -5,150 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Address Book</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    <script src="scriptAddrBookLabPt1.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-    <div class="formContainer">
-        <form class="fillForm"> 
-                 <h1>My Contacts</h1>
-
-          <ul>
-            <li><input id=eName class="formfield" type="text"  placeholder="   Name"></li>
-            <li><input id=eEmail class="formfield" type="text" placeholder="   Email"></li>
-            <li><input id=ePhone class="formfield" type="text" placeholder="   Phone"></li>
-            <li><select id=eSelect class="formfield" value="relation">
-                    <option id="eRelation">Family</option>
-                    <option id="eRelation">Friend</option>
-                    <option id="eRelation">Co-worker</option>
-                </select></li>
-            <li><button id="addDivButton">Add</button></li>
-          </ul>
+      <div class="formContainer">
+        <h1>My Contacts</h1>
+        <form>
+          <input class="nameInput" type="text" placeholder=" Name"/>
+          <input class="emailInput" type="text" placeholder=" Email"/>
+          <input class="phoneInput" type="text" placeholder=" Phone"/>
+          
+          <select type="button" id="relation">
+            <option value="">Select relation</option>
+            <option value="friend">Friend</option>
+            <option value="family">Family</option>
+            <option value="classmate">Classmate</option>
+          </select>
+          
+          <button class="buttonAdd" type="button">Add</button>
+          
         </form>
-    </div>
-
-      <div id="allContacts" class="addressBook">
-        <div id="cDiv" class="contact">
-           <ul>
-               <li id="name" class="liName"></li>
-               <li id="email" class="liEmail"></li>
-               <li id="phone" class="liPhone"></li>
-               <li id="relation" class="liRelation"></li>
-               <li><a><img input type="button" id="deleteImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsRsQRKUIflV92Cl7dImnX-WYARmzgfiHOF0wZT8s8-o1QI0myXw" alt="A placeholder image."></a></li>
-           </ul>
-        </div>
-
-
-        <div id="cDiv" class="contact">
-            <ul>
-                <li>Name:</li>
-                <li>Email:</li>
-                <li>Phone:</li>
-                <li>Family:</li>
-                <li><img id="deleteImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsRsQRKUIflV92Cl7dImnX-WYARmzgfiHOF0wZT8s8-o1QI0myXw" alt="A placeholder image."></li>
-            </ul>
-        </div>
-
-        <div id="cDiv" class="contact">
-            <ul>
-                <li>Name:</li>
-                <li>Email:</li>
-                <li>Phone:</li>
-                <li>Family:</li>
-                <li><img id="deleteImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsRsQRKUIflV92Cl7dImnX-WYARmzgfiHOF0wZT8s8-o1QI0myXw" alt="A placeholder image."></li>
-            </ul>
-        </div>
-
-        <script>
-
-// function addElement(parentId, elementTag, elementId, html) {
-//     // Adds an element to the document
-//     var p = document.getElementById(parentId);
-//     var newElement = document.createElement(elementTag);
-//     newElement.setAttribute('id', elementId);
-//     newElement.innerHTML = html;
-//     p.appendChild(newElement);
-// }
-
-// var x = document.getElementsByClassName('contact');
-// console.log(x);
-
-const wrapperContact = document.getElementById("cDiv");
-const wrapperName = document.getElementById("name");
-const wrapperEmail = document.getElementById("email");
-const wrapperPhone = document.getElementById("phone");
-const wrapperRelation = document.getElementById("relation");
-const nuDivPostion = document.getElementById('cDiv');
- 
-// const deleteContactDivIcon = document.getElementById('addressBook');
-//     const parentDiv = deleteContactDivIcon.parentNode;
-const nuContactDiv = document.createElement('div'); //make a new contact div
-                
-                nuContactDiv.id = "cDiv";
-                nuContactDiv.className = "contact"; 
-                wrapperContact.appendChild(nuContactDiv);
-
-function deleteContact(){
-    document.body.removeChild(nuContactDiv);
-}
-const delbtn = document.getElementById('deleteImg');
-delbtn.addEventListener('click', deleteContact, false);
-
-
-const nuNameLi = document.createElement("li"); //make a new name input li
-                nuNameLi.id = "name";
-                nuNameLi.className = "liName";
-                nuNameLi.innerHTML = "Name: " + info.name;
-                wrapperName.appendChild(nuNameLi);
-
-const nuEmailLi = document.createElement("li"); //make a new name input li
-                nuEmailLi.id = "email";
-                nuEmailLi.className = "liEmail";
-                nuEmailLi.innerHTML = "Email: " + info.email;
-                wrapperEmail.appendChild(nuEmailLi);
-
-const nuPhoneLi = document.createElement("li"); //make a new name input li
-                nuPhoneLi.id = "phone";
-                nuPhoneLi.className = "liPhone";
-                nuPhoneLi.innerHTML = "Phone: " + info.phone;
-                wrapperPhone.appendChild(nuPhoneLi);
-
-const nuRelationLi = document.createElement("li"); //make a new name input li
-                nuRelationLi.id = "relation";
-                nuRelationLi.className = "liRelation";
-                nuRelationLi.innerHTML = "Relation: " + info.relation;
-                wrapperRelation.appendChild(nuRelationLi);
-
-
-// const name= document.getElementById('name').value;
-//       name = info.name;
-//       wrapperName.appendChild(nuNameLi);
-
-// const email= document.getElementById('email').value;
-// const phone= document.getElementById('phone').value;
-// const relation= document.getElementById('select').value;
-                
-            
-// }
-            
-
-            // const emailLi = document.createElement("li");
-            // const emailNode = document.createTextNode("email");
-            // emailLi.appendChild(emailNode);
-            // // const element = document.getElementById("cDiv");
-            // element.appendChild(emailLi);
-
-            // const phoneLi = document.createElement("li");
-            // const phoneNode = document.createTextNode("phone");
-            // phoneLi.appendChild(phoneNode);
-            // element.appendChild(phoneLi);
-
-            // const relationLi = document.createElement("li");
-            // const relationNode = document.createTextNode("relation");
-            // relationLi.appendChild(relationNode);
-            // // const element = document.getElementById("cDiv");
-            // element.appendChild(relationLi);
-
-            </script>
-</body>
+      </div>
+      <div class="contacts">
+      </div>
+      <script src="C:\Users\mdaniel\Desktop\javascriptAddressBookLab\scriptAddrBookLabPt1.js"></script>
+    </body>
 </html>
