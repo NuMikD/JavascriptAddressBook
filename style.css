@@ -16,12 +16,11 @@ body {
 }
 
 .formContainer {
-    /* display: flex; */
     flex-direction: column;
     align-content: center;
     background-color: rgb(248, 248, 255, 0.5);
     width: 458px;
-    height: 325px;
+    height: 315px;
     border-radius: 4px;
     list-style: none;
     margin: auto;
@@ -63,14 +62,6 @@ input, select {
     background-color: white;
 }
 
-/* .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 750px;
-
-} */
 .contacts {
     display: flex;
     flex-direction: row; 
@@ -84,11 +75,9 @@ input, select {
     display: flex;
     flex: none;
     flex-direction: column;
-    padding: 0px;
     width: 200px;
     height: 91.6px;
     border-radius: 4px;
-    padding: 1px;
     margin: 10px auto;
     background-color: lightgray;
 }
@@ -100,34 +89,21 @@ img {
     background-color: ghostwhite;
     border-radius: 50%;
     border: 1px solid black;
-    padding: 0px;
     margin-left: 185px;
     margin-top: 5px;
     }
 
-/* .contact ul {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-}
-
-.contact ul li:nth-child(5) {
-   height: 18px;
-   width: 100%;
-   background-color: lightgray;
-} */
-
 .contactDiv {
-    background-color: lightgrey;
+    background-color: rgb(248, 248, 255, 0.5);
     opacity: 0.9;
-    font-size: 0.8rem;
+    font-size: .9rem;
     border-radius: 3px;
     padding: 5px;
     position: relative;
     font-weight: 600;
     width: 200px;
-    height: 130px;
-    margin: 10px 0;
+    height: 150px;
+    margin: 14px 10px;
 }
 
 .fa-trash-alt {
@@ -147,5 +123,5 @@ img {
 .deleteButton, .fa-trash-alt {
     position: absolute;
     left: 100px;
-    top: 65px;
+    top: 72px;
 }
